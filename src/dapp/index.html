@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FlightSurety</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">FlightSurety</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <main class="container">
+        <br>
+        <h2>Initialization Values</h2>
+        <br>
+        <div id="initialization">
+        </div>
+        <div id="operational">
+        </div>
+        <br>
+        <div>
+            <h2>1. Authorize Application</h2>
+            <btn class="btn btn-primary" id="authorize-btn">Authorize Application</btn>
+            <div id='authorize'>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <h2>2. Register Airlines</h2>
+            <h4> Airline addresses:</h4>
+            <br>
+            1. 0xf17f52151EbEF6C7334FAD080c5704D77216b732 (American)
+            <br>
+            2. 0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef (Delta)
+            <br>
+            3. 0x821aEa9a577a9b44299B9c15c88cf3087F3b5544 (United)
+            <br>
+            4. 0x0d1d4e623D10F9FBA5Db95830F7d3839406C6AF2 (Alaska)
+            <br>
+            5. 0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e (JetBlue)
+            <br>
+            <div>
+                <br>
+                <label class="form">Airline sending registration (default to American, which is the first airline already registered): </label>
+                <input type="text" id="airline-register-sender" size="50" value="0xf17f52151EbEF6C7334FAD080c5704D77216b732">
+                <br>
+                <br>
+                <label class="form">Airline address to register (copy from above): </label>
+                <input type="text" id="airline-register" size="50">
+                <br>
+                <br>
+                <btn class="btn btn-primary" id="register-btn">Register</btn>
+                <div id="register">
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <h2>3. Consensus Voting</h2>
+            <label class="form">Airline sending registration (default to American, which is the first airline already registered): </label>
+            <input type="text" id="airline-register-consensus-sender" size="50" value="0xf17f52151EbEF6C7334FAD080c5704D77216b732">
+            <br>
+            <br>
+            <label class="form">Airline address to register via consensus vote (copy address from above): </label>
+            <input type="text" id="airline-register-consensus" size="50">
+            <br>
+            <br>
+            Select dropdown value to indicate airline votes in favor of registering airline. Only registered (see section 2) and funded (see section 4) airlines are allowed to vote.
+            <br>
+            <br>
+            <select id="airline1Vote">
+                <option value="na">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            American <br>
+            <select id="airline2Vote">
+                <option value="na">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            Delta <br>
+            <select id="airline3Vote">
+                <option value="na">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            United <br>
+            <select id="airline4Vote">
+                <option value="na">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            Alaska <br>
+            <select id="airline5Vote">
+                <option value="na">N/A</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            JetBlue <br>
+            <br>
+            <btn class="btn btn-primary" id="register-consensus-btn">Submit Votes</btn>
+            <div id="consensus">
+            </div>
+        </div>
+
+        <br>
+        <div id="fund">
+            <h2>4. Fund Airline</h2>
+            <br>
+            <label class="form">Select an airline: </label>
+            <select id="airline-fund" name="airline">
+                <option value="american">American</option>
+                <option value="delta">Delta</option>
+                <option value="united">United</option>
+                <option value="alaska">Alaska</option>
+                <option value="jetblue">JetBlue</option>
+                <option value="invalid">Invalid</option>
+            </select>
+            <br>
+            <label class="form">Funds to send: </label>
+            <input type="text" id="funds" value="10 ether" readonly>
+            <br>
+            <btn class="btn btn-primary" id="fund-btn">Fund</btn>
+
+        </div>
+
+        <br>
+        <div id="buy-ins">
+            <h2>2. Buy Flight Insurance</h2>
+            <br>
+            <h4> Passenger addresses:</h4>
+            1. 0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
+            <br>
+            2. 0x0F4F2Ac550A1b4e2280d04c21cEa7EBD822934b5
+            <br>
+            3. 0x6330A553Fc93768F612722BB8c2eC78aC90B3bbc
+            <br>
+            4. 0x5AEDA56215b167893e80B4fE645BA6d5Bab767DE
+            <br>
+            5. 0xE44c4cf797505AF1527B11e4F4c6f95531b4Be24
+            <br>
+            <br>
+            <label class="form">Passenger purchasing insurance (copy address from above): </label>
+            <input type="text" id="passenger-purchasing" size="50">
+            <br>
+            <label class="form">Select flight to insure: </label>
+            <select id="flight-selection">
+                <option value="american-flight">American Flight</option>
+                <option value="delta-flight">Delta Flight</option>
+                <option value="united-flight">United Flight</option>
+                <option value="alaskan-flight">Alaskan Flight</option>
+                <option value="jetblue-flight">JetBlue Flight</option>
+            </select>
+            <br>
+            <label class="form">Insurance amount in ether (1 ether max): </label>
+            <input type="number" id="insurance-amt" min="0" max="1">
+            <br>
+            <btn class="btn btn-primary" id="buy-ins-btn">Buy</btn>
+        </div>
+
+        <br>
+        <h2>3. Flight Update</h2>
+        <div>
+            <label class="form">Flight</label>
+            <select id="flight-update-selection">
+                <option value="american-flight">American Flight</option>
+                <option value="delta-flight">Delta Flight</option>
+                <option value="united-flight">United Flight</option>
+                <option value="alaskan-flight">Alaskan Flight</option>
+                <option value="jetblue-flight">JetBlue Flight</option>
+            </select>
+            <br>
+            <label class="form">Manual Status Code</label>
+            <select id="manual-flight-status-selection">
+                <option value="0">STATUS_CODE_UNKNOWN</option>
+                <option value="10">STATUS_CODE_ON_TIME</option>
+                <option value="20">STATUS_CODE_LATE_AIRLINE</option>
+                <option value="30">STATUS_CODE_LATE_WEATHER</option>
+                <option value="40">STATUS_CODE_LATE_TECHNICAL</option>
+                <option value="50">STATUS_CODE_LATE_OTHER</option>
+            </select>
+            <br>
+            <btn class="btn btn-primary" id="submit-oracle-btn">Submit to Oracles</btn>
+            <br>
+            <br>
+            <btn class="btn btn-primary" id="get-oracle-status-btn">Get Oracle Flight Status</btn>
+            <br>
+            <br>
+            <btn class="btn btn-primary" id="submit-manual-btn">Submit Manual Status</btn>
+            <div id="flight-update">
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <h2>4. Claim Insurance</h2>
+            <br>
+            <h4> Passenger addresses:</h4>
+            1. 0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
+            <br>
+            2. 0x0F4F2Ac550A1b4e2280d04c21cEa7EBD822934b5
+            <br>
+            3. 0x6330A553Fc93768F612722BB8c2eC78aC90B3bbc
+            <br>
+            4. 0x5AEDA56215b167893e80B4fE645BA6d5Bab767DE
+            <br>
+            5. 0xE44c4cf797505AF1527B11e4F4c6f95531b4Be24
+            <br>
+            <br>
+            <label class="form">Passenger that purchased insurance (copy address from above): </label>
+            <input type="text" id="passenger-credit-check" size="50">
+            <br>
+            <br>
+            <h3>Check Amounts</h3>
+            <br>
+            <btn class="btn btn-primary" id="check-credit-btn">Check Credits</btn>
+            <div id='credits'>
+            </div>
+            <br>
+            <br>
+            <btn class="btn btn-primary" id="check-balance-btn">Check Contract Balance</btn>
+            <div id='balance'>
+            </div>
+            <br>
+            <br>
+            <h3>Withdraw Insurance Credit</h3>
+            <br>
+            <btn class="btn btn-primary" id="withdraw-btn">Withdraw Credits</btn>
+            <div id='withdraw'>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
