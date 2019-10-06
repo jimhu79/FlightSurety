@@ -59,17 +59,6 @@ export default class Contract {
         let self = this;
 
         await self.flightSuretyData.methods
-            .getAuthorizedCaller()
-            .call((error,result) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('         contract.js authorize(): authorized caller is:' + result);
-                    callback(result);
-                }
-            });
-
-        await self.flightSuretyData.methods
             .setAuthorizedCaller(self.flightSuretyAppAddress)
             .send({from: self.owner}, (error,result) => {
                 if (error) {
@@ -89,6 +78,7 @@ export default class Contract {
                     console.log(error);
                 } else {
                     console.log('         contract.js authorize(): getAuthorizedCaller() returned: ' + result);
+                    callback(result);
                 }
             });
     }
